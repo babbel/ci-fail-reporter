@@ -1,0 +1,22 @@
+name: CI Fail reporter
+description: GitHub Action reports to Slack about fails in CI on the main branch.
+
+inputs:
+  slack_webhook_url:
+    description: The Slack webhook URL used to send messages to a Slack. This URL is provided by Slack when you create a new incoming webhook in your Slack workflows. Ensure this URL is kept secure.
+    required: true
+runs:
+  using: composite
+
+  steps:
+    - name: Report to Slack
+      if: failure() && endsWith(github.ref, github.event.repository.default_branch)
+      uses: slackapi/slack-github-action@v1
+      with:
+        payload: |
+          {
+            "url": "${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+            "project_name": "https://github.com/${{github.repository}}"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ inputs.slack_webhook_url }}

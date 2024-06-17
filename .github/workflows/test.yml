@@ -1,0 +1,11 @@
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          slack_webhook_url: "SLACK_WEBHOOK_URL"
