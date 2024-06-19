@@ -1,4 +1,4 @@
-# CI fail Reporter
+# CI Fail Reporter
 Github Action to report default branch CI fails to the slack channel.
 
 ## Overview
