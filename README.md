@@ -2,7 +2,7 @@
 Github Action to report default branch CI fails to the slack channel.
 
 ## Overview
-The **CI fail Reporter** is a GitHub Action designed to report to Slack when CI fails on the main (or another default) branch.
+The **CI Fail Reporter** is a GitHub Action designed to report to Slack when CI fails on the main (or another default) branch.
 
 ## Inputs
 
